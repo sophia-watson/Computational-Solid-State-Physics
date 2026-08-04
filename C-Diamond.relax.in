@@ -1,0 +1,44 @@
+&CONTROL
+  calculation   = 'vc-relax'
+  prefix        = 'diamond'
+  outdir        = './tmp'
+  pseudo_dir    = './pseudo'
+  tstress       = .true.
+  tprnfor       = .true.
+  etot_conv_thr = 1.0d-5
+  forc_conv_thr = 1.0d-4
+/
+
+&SYSTEM
+  ibrav     = 2
+  celldm(1) = 6.7403
+  nat       = 2
+  ntyp      = 1
+  ecutwfc   = 60
+  ecutrho   = 480
+/
+
+&ELECTRONS
+  conv_thr    = 1.0d-10
+  mixing_beta = 0.7
+/
+
+&IONS
+  ion_dynamics = 'bfgs'
+/
+
+&CELL
+  cell_dynamics = 'bfgs'
+  press         = 0.0
+  press_conv_thr = 0.5
+/
+
+ATOMIC_SPECIES
+  C  12.011  C.pbe-n-kjpaw_psl.1.0.0.UPF
+
+ATOMIC_POSITIONS crystal
+  C  0.00  0.00  0.00
+  C  0.25  0.25  0.25
+
+K_POINTS automatic
+  8 8 8 0 0 0
